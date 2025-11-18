@@ -16,7 +16,7 @@ sides = 32
 material = SubResource("StandardMaterial3D_5x8ra")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 5.5, 0)
 billboard = 1
 text = "Starting health"
 font_size = 500
