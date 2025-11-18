@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://07b0w8wg0t3d"]
+[gd_scene load_steps=12 format=3 uid="uid://07b0w8wg0t3d"]
 
 [ext_resource type="PackedScene" uid="uid://cgepsgj0dutey" path="res://RayPickerCamera/ray_picker_camera.tscn" id="1_knq2t"]
 [ext_resource type="MeshLibrary" uid="uid://016mydobghxt" path="res://MeshLibraries/SpaceLibrary.tres" id="1_lvb7b"]
 [ext_resource type="PackedScene" uid="uid://cedg4p1ktt00c" path="res://Enemy/enemy.tscn" id="2_5x8ra"]
 [ext_resource type="PackedScene" uid="uid://b6a3tfb71rtov" path="res://Base/base.tscn" id="3_o2j4u"]
+[ext_resource type="Script" uid="uid://bsjogxvyjj8tp" path="res://turret_manager.gd" id="5_cwwxe"]
+[ext_resource type="PackedScene" uid="uid://d01unib15e15u" path="res://Turret/turret.tscn" id="6_ufkdr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dq0bh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -104,7 +106,7 @@ path_joined = false
 transform = Transform3D(-0.1643964, 0, -0.98637784, 0, 1, 0, 0.98637784, 0, -0.1643964, -21, 0, 6)
 
 [node name="Enemy2" parent="Path3D" instance=ExtResource("2_5x8ra")]
-transform = Transform3D(0.017463762, 0, -0.99983025, 0, 1, 0, 0.99983025, 0, 0.017463762, -16.024893, 0, 6.4424577)
+transform = Transform3D(0.017463762, 0, -0.9998302, 0, 1, 0, 0.9998302, 0, 0.017463762, -16.024893, 0, 6.4424577)
 progress = 5.0
 
 [node name="Enemy3" parent="Path3D" instance=ExtResource("2_5x8ra")]
@@ -116,8 +118,12 @@ transform = Transform3D(0.890293, 0, -0.45535228, 0, 1, 0, 0.45535228, 0, 0.8902
 progress = 15.0
 
 [node name="Enemy5" parent="Path3D" instance=ExtResource("2_5x8ra")]
-transform = Transform3D(0.029546179, 0, -0.99954623, 0, 1, 0, 0.99954623, 0, 0.029546179, -9.416761, 0, -2.8104439)
+transform = Transform3D(0.029546177, 0, -0.9995462, 0, 1, 0, 0.9995462, 0, 0.029546177, -9.416761, 0, -2.8104439)
 progress = 20.0
 
 [node name="Base" parent="." instance=ExtResource("3_o2j4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 10)
+
+[node name="TurretManager" type="Node3D" parent="."]
+script = ExtResource("5_cwwxe")
+turret = ExtResource("6_ufkdr")
