@@ -66,11 +66,12 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="EnemyPath" type="Path3D" parent="." node_paths=PackedStringArray("difficulty_manager")]
+[node name="EnemyPath" type="Path3D" parent="." node_paths=PackedStringArray("difficulty_manager", "victory_layer")]
 curve = SubResource("Curve3D_lvb7b")
 script = ExtResource("3_ufkdr")
 enemy_scene = ExtResource("2_5x8ra")
 difficulty_manager = NodePath("../DifficultyManager")
+victory_layer = NodePath("../VictoryLayer")
 
 [node name="Road" type="CSGPolygon3D" parent="EnemyPath"]
 polygon = PackedVector2Array(-1, 0, -1, 0.01, 1, 0.01, 1, 0)
@@ -152,6 +153,17 @@ text = "Placeholder"
 label_settings = SubResource("LabelSettings_epnn3")
 
 [node name="DifficultyManager" parent="." instance=ExtResource("9_xkmwr")]
+
+[node name="VictoryLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="VictoryLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
 
 [connection signal="timeout" from="EnemyPath/Timer" to="EnemyPath" method="spawn_enemy"]
 [connection signal="stop_spawning_enemies" from="DifficultyManager" to="EnemyPath" method="_on_difficulty_manager_stop_spawning_enemies"]
