@@ -16,7 +16,7 @@ var current_health: int:
 
 func _ready() -> void:
 	current_health = maximum_health
-	Engine.time_scale = 5
+	#Engine.time_scale = 5
 	
 func take_damage() -> void:
 	current_health -= 1
