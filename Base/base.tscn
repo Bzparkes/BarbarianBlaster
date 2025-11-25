@@ -1,15 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6a3tfb71rtov"]
+[gd_scene load_steps=4 format=3 uid="uid://b6a3tfb71rtov"]
 
 [ext_resource type="Script" uid="uid://bi5e6k18ll8yd" path="res://Base/base.gd" id="1_u1x2a"]
 [ext_resource type="PackedScene" uid="uid://dehkdk0u144ki" path="res://Assets/Base.glb" id="2_n5f2c"]
+[ext_resource type="FontFile" uid="uid://c6brdyhbc6k0b" path="res://Assets/Asap/static/Asap-Bold.ttf" id="2_ws5nf"]
 
 [node name="Base" type="Node3D" groups=["base"]]
 script = ExtResource("1_u1x2a")
+maximum_health = 10
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 5.5, 0)
 billboard = 1
 text = "Starting health"
+font = ExtResource("2_ws5nf")
 font_size = 500
 outline_size = 100
 

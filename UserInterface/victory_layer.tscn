@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://br7goocsrghxf"]
+[gd_scene load_steps=6 format=3 uid="uid://br7goocsrghxf"]
 
 [ext_resource type="Script" uid="uid://da72ddpuno7hw" path="res://UserInterface/victory_layer.gd" id="1_6k6vd"]
+[ext_resource type="FontFile" uid="uid://c6brdyhbc6k0b" path="res://Assets/Asap/static/Asap-Bold.ttf" id="2_o6yni"]
 [ext_resource type="Texture2D" uid="uid://bgjs3rjcj26gk" path="res://Assets/star.png" id="2_rt5eh"]
+
+[sub_resource type="Theme" id="Theme_3qhxs"]
+default_font = ExtResource("2_o6yni")
 
 [sub_resource type="LabelSettings" id="LabelSettings_veim5"]
 font_size = 86
@@ -23,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_3qhxs")
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
 custom_minimum_size = Vector2(400, 400)
@@ -90,6 +95,7 @@ horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 10
 
 [node name="RetryButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -101,7 +107,7 @@ text = "RETRY"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
-text = "Quit"
+text = "QUIT"
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
