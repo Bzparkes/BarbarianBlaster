@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://07b0w8wg0t3d"]
+[gd_scene load_steps=16 format=3 uid="uid://07b0w8wg0t3d"]
 
 [ext_resource type="PackedScene" uid="uid://cgepsgj0dutey" path="res://RayPickerCamera/ray_picker_camera.tscn" id="1_knq2t"]
 [ext_resource type="MeshLibrary" uid="uid://016mydobghxt" path="res://MeshLibraries/SpaceLibrary.tres" id="1_lvb7b"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bsjogxvyjj8tp" path="res://turret_manager.gd" id="5_cwwxe"]
 [ext_resource type="PackedScene" uid="uid://d01unib15e15u" path="res://Turret/turret.tscn" id="6_ufkdr"]
 [ext_resource type="Script" uid="uid://brmiqfbffbybp" path="res://bank.gd" id="8_tv3th"]
+[ext_resource type="PackedScene" uid="uid://mkj7f0lctt2k" path="res://DifficultyManager/difficulty_manager.tscn" id="9_xkmwr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dq0bh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -65,10 +66,11 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="EnemyPath" type="Path3D" parent="."]
+[node name="EnemyPath" type="Path3D" parent="." node_paths=PackedStringArray("difficulty_manager")]
 curve = SubResource("Curve3D_lvb7b")
 script = ExtResource("3_ufkdr")
 enemy_scene = ExtResource("2_5x8ra")
+difficulty_manager = NodePath("../DifficultyManager")
 
 [node name="Road" type="CSGPolygon3D" parent="EnemyPath"]
 polygon = PackedVector2Array(-1, 0, -1, 0.01, 1, 0.01, 1, 0)
@@ -147,5 +149,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "Placeholder"
 label_settings = SubResource("LabelSettings_epnn3")
+
+[node name="DifficultyManager" parent="." instance=ExtResource("9_xkmwr")]
 
 [connection signal="timeout" from="EnemyPath/Timer" to="EnemyPath" method="spawn_enemy"]
